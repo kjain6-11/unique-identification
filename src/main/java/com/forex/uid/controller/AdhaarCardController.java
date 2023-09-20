@@ -24,10 +24,15 @@ public class AdhaarCardController {
 		this.adhaarCardService.verifyAdhaarCard(Long.parseLong(adhaarNumber));
 		return ResponseEntity.ok("Adhaar Verified");
 	} 
-	
-	@GetMapping("adhaar-card/linked-pancard")
-	public ResponseEntity<String> getLinkedPancard(@RequestBody AdhaarCardDTO adhaarCardDTO) throws AdhaarCardException{
-		String panCardNumber = this.adhaarCardService.getLinkedPancard(adhaarCardDTO);
+	@GetMapping("adhaar-card/verification/{adhaarNumber}/{ownerName}")
+	public ResponseEntity<String> verifyAdhaarCardOwnerName(@PathVariable("adhaarNumber") String adhaarNumber, @PathVariable("ownerName") String ownerName) throws AdhaarCardException{
+		System.out.println(ownerName);
+		Boolean isVerified = this.adhaarCardService.verifyAdhaarCardOwnerName(adhaarNumber, ownerName);
+		return ResponseEntity.ok("User Verified");
+	}
+	@GetMapping("adhaar-card/linked-pancard/{adhaarCard}/{pancard}")
+	public ResponseEntity<String> getLinkedPancard(@PathVariable("adhaarCard") String adhaarCard, @PathVariable("pancard") String pancard) throws AdhaarCardException{
+		String panCardNumber = this.adhaarCardService.getLinkedPancard(adhaarCard, pancard);
 		return ResponseEntity.ok(panCardNumber);
 	}
 	

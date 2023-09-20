@@ -12,8 +12,8 @@ public class Passport {
 	private String ownerName;
 	private LocalDate dateOfBirth;
 	private String placeOfBirth;
-	private Gender gender;
-	private Character type;
+	private Character gender;
+//	private Character type;
 	private LocalDate dateOfIssue;
 	private LocalDate expiryDate;
 	private String nationality;
@@ -22,7 +22,7 @@ public class Passport {
 		super();
 	}
 
-	public Passport(Integer passportId, String passportNumber, String ownerName, LocalDate dateOfBirth, String placeOfBirth, Gender gender,
+	public Passport(Integer passportId, String passportNumber, String ownerName, LocalDate dateOfBirth, String placeOfBirth, Character gender,
 			Character type, LocalDate dateOfIssue, LocalDate expiryDate, String nationality) {
 		super();
 		this.passportId = passportId;
@@ -31,7 +31,7 @@ public class Passport {
 		this.dateOfBirth = dateOfBirth;
 		this.placeOfBirth = placeOfBirth;
 		this.gender = gender;
-		this.type = type;
+		
 		this.dateOfIssue = dateOfIssue;
 		this.expiryDate = expiryDate;
 		this.nationality = nationality;
@@ -69,20 +69,12 @@ public class Passport {
 		this.placeOfBirth = placeOfBirth;
 	}
 
-	public Gender getGender() {
+	public Character getGender() {
 		return gender;
 	}
 
-	public void setGender(Gender gender) {
+	public void setGender(Character gender) {
 		this.gender = gender;
-	}
-
-	public Character getType() {
-		return type;
-	}
-
-	public void setType(Character type) {
-		this.type = type;
 	}
 
 	public LocalDate getDateOfIssue() {
